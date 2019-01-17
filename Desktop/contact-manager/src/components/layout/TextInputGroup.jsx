@@ -5,34 +5,29 @@ import classnames from "classnames";
 const TextInputGroup = ({
 	label,
 	name,
-	value, 
+	value,
 	placeholder,
 	type,
 	onChange,
 	error
 }) => {
-
 	return (
 		<div className="form-group">
 			<label htmlFor={name}>{label}</label>
-			<input className={classnames("form-control form-control-lg", {
-				"is-invalid": error
-			})} 
-					type={type}
-					name={name}
-					placeholder={placeholder}
-					value={value}
-					onChange={onChange}
-
-				/>
-			{error && (
-				<div className="invalid-feedback">
-					{error}
-				</div>
-			)}
+			<input
+				className={classnames("form-control form-control-lg", {
+					"is-invalid": error
+				})}
+				type={type}
+				name={name}
+				placeholder={placeholder}
+				value={value}
+				onChange={onChange}
+			/>
+			{error && <div className="invalid-feedback">{error}</div>}
 		</div>
-	) 
-}
+	);
+};
 
 TextInputGroup.propTypes = {
 	name: PropTypes.string.isRequired,
@@ -42,10 +37,10 @@ TextInputGroup.propTypes = {
 	placeholder: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
 	error: PropTypes.string
-}
+};
 
 TextInputGroup.defaultProps = {
 	type: "text"
-}
+};
 
 export default TextInputGroup;
